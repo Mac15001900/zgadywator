@@ -76,6 +76,7 @@ Zgredek
 Iron Man
 Neil deGrasse Tyson
 Hulk
+Mario
 Neil Armstrong
 Jackie Chan
 Picasso
@@ -141,7 +142,6 @@ Motorniczy
 Gotyk
 Mikrosoczewkowanie grawitacyjne
 Grafen
-Mikoryza
 Mitoza
 Termopauza
 Lawa
@@ -238,6 +238,7 @@ Zbiór pusty
 Granat zaczepny
 Drzewo sandałowe
 Pajęczy kosz
+Olej rzepakowy
 Redystrybucja butów
 Fregata uzbrojona rzędem w setkę dział
 Złota kula nad wodami
@@ -255,7 +256,6 @@ Major Ponury
 Majster Bieda
 Posejdon
 Zeus
-Pamięci pancerz nasz
 Smutny programista
 Chomik na patelni
 Rybacki kuter
@@ -326,13 +326,33 @@ Gripex
 Firanka
 Szuflada
 Snopowiązałka
+Zagadka
+Armagedon
+Powódź
+Śrubokręt
+Para wodna
+Rewolucja przemysłowa
+Szczotka do włosów
+Żarówka
+Aorta
+Klawiatura
+Karta graficzna
+Papier ścierny
+Telefon wielokomórkowy
+Wirtualna rzeczywistość
+Święty Mikołaj
+Skórka od banana
+Kalkulator graficzny
+Szwajcarski zegarek
+Rondo
+Rondel
+Karabin snajperski
 
 Almukantarat
 Heliomagnetohydrodynamika
 Śpiewanki
 Gitara
 Załęcze
-Las
 Szyszka
 Harcerz
 Latający namiot
@@ -342,7 +362,7 @@ Sanitariat
 Młyn
 Podwieczorek
 Zbiórka
-Pociąg
+Pociąg elektryczny
 Kadron
 Wielki Zderzacz Kadronów
 Gra terenowa
@@ -353,6 +373,7 @@ Seminarium
 Zimowisko
 Referat
 Zwycięzca sesji referatowej
+Pojemnik ewakuacyjny
 
 Śląsk
 Bieszczady
@@ -362,6 +383,7 @@ Hawaje
 Japonia
 Sahara
 Tybet
+Tatry
 Mount Everest
 Antarktyka
 Amazonka
@@ -371,6 +393,10 @@ GPS
 Satelita
 Pizza z ananasem
 UFO
+Kremówka
+Bursztyn
+Dzban
+
 Wielbłąd
 Żyrafa
 Krokodyl
@@ -378,11 +404,14 @@ Orzeł
 Wieloryb
 Zółw
 Mamut
-Dzban
+Koliber
 Biedronka
+
+Trawa
 Sekwoja
-Kremówka
-Bursztyn
+Melon
+Jabłonka
+Palma
 
 Przeciwieństwo
 Synonim
@@ -395,13 +424,12 @@ Biologia
 Filozofia
 Laboratorium matematyczne
 
-
-
 Magnetyzm
 Elektryczność
 Grawitacja
 Energia
 Przewodnik
+Nadprzewodnik
 Opór
 Wymiar
 Pęd
@@ -450,6 +478,7 @@ Kot Schrödingera
 Magia
 Zaklęcie
 Alchemia
+Mandragora
 Runa
 Iluzja
 Pułapka
@@ -462,7 +491,6 @@ Ork
 Troll
 Skrzat
 Demon
-Hybryda
 Smok
 Gryf
 Duch
@@ -473,6 +501,7 @@ Minotaur
 Goblin
 Różdżka
 Latający dywan
+Peleryna niewidka
 Eliksir
 Magiczna kula
 Kocioł
@@ -483,7 +512,7 @@ Kleryk
 Złodziej
 
 
----Trudne---
+---Rzeczy, których ktoś może nie znać---
 Kondensat Bosego-Einsteina
 Enrico Fermi
 Krzysztof Meissner
@@ -530,7 +559,7 @@ Waltornia
 Lira korbowa
 Dąb “Bartek”
 Tutanchamon
-chan
+Czyngis-chan
 Stanisław Wyspiański
 Banksy
 Michał Wójcik
@@ -546,7 +575,9 @@ Czyngis-chan
 Imagine Dragons
 Rammstein
 Taylor Swift
+Mikoryza
 Iwan Groźny
 Zaświadczenie A39
 Pani Beatka
 Janosik
+WD-40
