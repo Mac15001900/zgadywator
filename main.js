@@ -3,10 +3,10 @@ if (!debugConfig) window.debugConfig = {}; //If debug config is not present, ass
 //References to dynamic DOM elements
 const DOM = {
     membersList: document.querySelector('#membersList'),
-    messages: document.querySelector('#messages'),
+    //messages: document.querySelector('#messages'),
     input: document.querySelector('#textInput'),
-    exampleButton: document.querySelector('#exampleButton'),
-    exampleInput: document.querySelector('#exampleInput'),
+    resetButton: document.querySelector('#resetButton'),
+    //exampleInput: document.querySelector('#exampleInput'),
 };
 
 var gs = { received: false, }; //GameState, this is shared with any player that joins the game
@@ -55,8 +55,9 @@ function createMemberElement(member) {
     const el = document.createElement('div');
     var content = name;
     //This is a good place to add extra info about this player by modifying 'el.style' or adding to 'content'
+    if (member.word) content += " - " + member.word;
     if (member.id === drone.clientId) content += " (" + s.you + ")";
-    el.style.color = 'aqua';
+    el.style.color = 'black';
     el.appendChild(document.createTextNode(content));
     el.className = 'member';
     return el;
@@ -68,6 +69,8 @@ function updateMembersDOM() {
 }
 
 function addMessageToListDOM(text, member, important = false, color = 'black') {
+    console.log("Message", text, member);
+    return; // Disabling this for now
     //If the message has line breaks, create a message for each line
     if (text.includes('\n')) {
         let messages = text.split('\n');
@@ -99,19 +102,14 @@ function addElementToListDOM(element) {
 }
 
 //User input
-exampleButton.addEventListener("click", function () {
-    var message = DOM.exampleInput.value;
-    if (message) {
-        sendMessage("general", message);
-        DOM.exampleInput.value = '';
-    }
-    else sendMessage("general", s.hello_world);
+resetButton.addEventListener("click", function () {
+    sendMessage("debug", "Button pressed");
 });
 
 //Translation
 
-let lang = 'en'; //Specify default language here (will be used if requested language is not supported)
-const languages = { 'en': enStrings, 'pl': plStrings };
+let lang = 'pl'; //Specify default language here (will be used if requested language is not supported)
+const languages = { 'pl': plStrings };
 let s = languages[lang];
 
 function initLanguage() {
@@ -234,11 +232,18 @@ function receiveMessage(data, serverMember) {
             case 'debug': //Example message type no 2
                 console.log(data.content);
                 break;
+            case 'newWord':
+                member.word = data.content;
+                break;
             case 'welcome': //Sent whenever a new player joins the game, informing them of the game state
                 if (!gs.received) {
                     //This is what happens after the player joins a non-empty room
                     gs = data.content;
                     //'gs' will now contain 'memberData' with all extra info about members; you might want to copy it to 'members'
+                    let memberData = gs.memberData;
+                    for (var i = 0; i < memberData.length; i++) {
+                        getMember(memberData[i]).word = memberData[i].word;
+                    }
                     updateAllUI();
                 }
                 break;
@@ -249,9 +254,9 @@ function receiveMessage(data, serverMember) {
     }
 }
 
-
-
-
+function updateAllUI() {
+    updateMembersDOM();
+}
 
 
 
