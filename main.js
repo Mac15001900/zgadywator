@@ -10,7 +10,7 @@ const DOM = {
 };
 
 var gs = { received: false, }; //GameState, this is shared with any player that joins the game
-let wordList = basicWords.split('\n');
+let wordList = basicWords.split('\n').filter(x => x.length > 0);
 
 
 //Name and room selection
