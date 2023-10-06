@@ -11,6 +11,7 @@ const DOM = {
 
 var gs = { received: false, }; //GameState, this is shared with any player that joins the game
 let wordList = basicWords.split('\n').filter(x => x.length > 0);
+let currentWord = makeNewWord();
 
 
 //Name and room selection
@@ -104,7 +105,8 @@ function addElementToListDOM(element) {
 
 //User input
 resetButton.addEventListener("click", function () {
-    createNewWord();
+    currentWord = makeNewWord();
+    sendMessage('newWord', currentWord);
 });
 
 //Translation
@@ -191,6 +193,8 @@ drone.on('open', error => {
         members = m.filter(x => !isDebugger(x));
         if (members.length === 1) {
             //This is what happens when the player joins an empty room
+            members[0].word = currentWord;
+            gs.memberData = members;
             gs.received = true;
         }
         updateMembersDOM();
@@ -204,10 +208,6 @@ drone.on('open', error => {
         if (gs.received) {
             gs.memberData = members;
             sendMessage('welcome', gs);
-            if (member.length === 2) {
-                //We finally have someone to play with
-                createNewWord();
-            }
         }
         updateMembersDOM();
     });
@@ -251,7 +251,7 @@ function receiveMessage(data, serverMember) {
                         getMember(memberData[i]).word = memberData[i].word;
                     }
                     updateAllUI();
-                    createNewWord();
+                    sendMessage("newWord", currentWord);
                 }
                 break;
             default: console.error('Unkown message type received: ' + data.type);
@@ -265,8 +265,8 @@ function updateAllUI() {
     updateMembersDOM();
 }
 
-function createNewWord() {
-    sendMessage("newWord", wordList[Math.floor(Math.random() * wordList.length)]);
+function makeNewWord() {
+    return wordList[Math.floor(Math.random() * wordList.length)];
 }
 
 
