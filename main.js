@@ -10,6 +10,7 @@ const DOM = {
 };
 
 var gs = { received: false, }; //GameState, this is shared with any player that joins the game
+let wordList = basicWords.split('\n');
 
 
 //Name and room selection
@@ -55,7 +56,7 @@ function createMemberElement(member) {
     const el = document.createElement('div');
     var content = name;
     //This is a good place to add extra info about this player by modifying 'el.style' or adding to 'content'
-    if (member.word) content += " - " + member.word;
+    if (member.word && member.id !== drone.clientId) content += " - " + member.word;
     if (member.id === drone.clientId) content += " (" + s.you + ")";
     el.style.color = 'black';
     el.appendChild(document.createTextNode(content));
@@ -103,7 +104,7 @@ function addElementToListDOM(element) {
 
 //User input
 resetButton.addEventListener("click", function () {
-    sendMessage("debug", "Button pressed");
+    createNewWord();
 });
 
 //Translation
@@ -203,6 +204,10 @@ drone.on('open', error => {
         if (gs.received) {
             gs.memberData = members;
             sendMessage('welcome', gs);
+            if (member.length === 2) {
+                //We finally have someone to play with
+                createNewWord();
+            }
         }
         updateMembersDOM();
     });
@@ -234,6 +239,7 @@ function receiveMessage(data, serverMember) {
                 break;
             case 'newWord':
                 member.word = data.content;
+                updateMembersDOM();
                 break;
             case 'welcome': //Sent whenever a new player joins the game, informing them of the game state
                 if (!gs.received) {
@@ -245,6 +251,7 @@ function receiveMessage(data, serverMember) {
                         getMember(memberData[i]).word = memberData[i].word;
                     }
                     updateAllUI();
+                    createNewWord();
                 }
                 break;
             default: console.error('Unkown message type received: ' + data.type);
@@ -258,6 +265,9 @@ function updateAllUI() {
     updateMembersDOM();
 }
 
+function createNewWord() {
+    sendMessage("newWord", wordList[Math.floor(Math.random() * wordList.length)]);
+}
 
 
 
