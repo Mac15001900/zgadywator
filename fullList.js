@@ -65,10 +65,7 @@ Hermiona
 Severus Snape
 Voldemort
 Król Julian
-Obi Wan Kenobi
-Baby Yoda
-Kuce z Bronksu
-ACDC
+Obi-Wan Kenobi
 Uniwersytet Warszawski
 Władca Pierścieni
 Gollum
@@ -580,4 +577,7 @@ Iwan Groźny
 Zaświadczenie A39
 Pani Beatka
 Janosik
-WD-40`
+WD-40
+Baby Yoda
+Kuce z Bronksu
+ACDC`
